@@ -1,0 +1,14 @@
+# By default service type is ClusterIP which is internal service type
+apiVersion: v1
+kind: Service
+metadata:
+  name: voting-app-service
+spec:
+  type: NodePort
+  selector:
+    app: voting-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30007
